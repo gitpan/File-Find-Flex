@@ -19,4 +19,4 @@ requires:
   Test::Exception: 0
   Test::More: 0
   Text::Glob: 0
-version: 0.52
+version: 0.60

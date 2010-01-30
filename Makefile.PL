@@ -11,7 +11,7 @@ WriteMakefile(
   NAME      => 'File::Find::Flex',
   AUTHOR    => "Ryan\ P\.\ Kelly\ \<rpkelly\@cpan\.org\>",
   ABSTRACT  => "File\:\:Find\,\ but\ cooler",
-  VERSION   => '0.52',
+  VERSION   => '0.60',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'mit') : ()),
   PREREQ_PM    => {

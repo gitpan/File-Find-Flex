@@ -1,5 +1,5 @@
 package File::Find::Flex;
-our $VERSION = '0.52';
+our $VERSION = '0.60';
 
 # ABSTRACT: Flexible file finding.
 
@@ -129,6 +129,8 @@ has 'recurse' => (
     is => 'rw',
     isa => 'Int',
     default => 0,
+    reader => '_get_recurse',
+    writer => '_set_recurse',
 );
 
 #filetest directives the file should be like
@@ -395,6 +397,18 @@ sub perms {
     } else {
         return $self->_set_perms($perms);
     }
+}
+
+
+sub recurse {
+    my $self = shift;
+    my $recurse = shift;
+    
+    if(!defined($recurse)) {
+        return $self->_get_recurse();
+    }
+    
+    return $self->_set_recurse($recurse);
 }
 
 
@@ -835,7 +849,7 @@ File::Find::Flex - Flexible file finding.
 
 =head1 VERSION
 
-version 0.52
+version 0.60
 
 =head1 SYNOPSIS
 
@@ -1144,6 +1158,13 @@ The method C<perms> allows you to set the permuission(s) to search for after the
 object has been created. It expects an array reference, or a single string.
 If called with no arguments, it will return an array reference containing
 the permission(s) to search for. See also L<Specifying perms>.
+
+=head2 recurse
+
+The method C<recurse> allows you to set the recursion property after the
+object has been created. It expects a single number, 0 false, any other for true.
+If called with no arguments, it will return whatever recurse is currently set
+to. See also L<Specifying recurse>.
 
 =head2 like
 
